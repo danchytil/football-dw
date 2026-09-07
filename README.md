@@ -62,13 +62,13 @@ flowchart LR
 2. **Silver Layer**: Deduplicated, normalized and linked entities. Includes team name normalization across all three sources, cross-reference auditing and stadium history tracking.
 3. **Gold Layer**: Business-ready star schema for Power BI dashboards (dimensions + facts).
 
-### Silver Layer — ER Diagram
+### Silver Layer - ER Diagram
 ![Silver Model](docs/silver_model.png)
 
-### Gold Layer — Star Schema
-## 1. Star schema
+### Gold Layer - Star Schema
+## 1. Star schema: Match analysis
 ![fct_match](docs/gold_fct_match.png)
-## 2. Star schema
+## 2. Star schema: Season analysis
 ![fct_team_season](docs/gold_fct_team_season.png)
 
 ---
