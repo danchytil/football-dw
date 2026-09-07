@@ -1,0 +1,35 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: football_db
+    environment:
+      POSTGRES_DB: football_dw
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d football_dw"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  pipeline:
+    build: .
+    container_name: football_pipeline
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: football_dw
+      DB_USER: ${DB_USER}
+      DB_PASS: ${DB_PASS}
+      FOOTBALL_API_KEY: ${FOOTBALL_API_KEY}
+      TARGET_SEASONS: ${TARGET_SEASONS:-2023,2024,2025}
+
+volumes:
+  pgdata:
