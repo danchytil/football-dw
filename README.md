@@ -65,12 +65,6 @@ flowchart LR
 ### Silver Layer - ER Diagram
 ![Silver Model](docs/silver_model.png)
 
-### Gold Layer - Star Schema
-## 1. Star schema: Match analysis
-![fct_match](docs/gold_fct_match.png)
-## 2. Star schema: Season analysis
-![fct_team_season](docs/gold_fct_team_season.png)
-
 ---
 
 ## Data Sources
@@ -85,7 +79,7 @@ flowchart LR
 
 ## Gold Layer
 
-### Star Schema (Power BI)
+### Star Schema
 
 | Table | Type | Description |
 |-------|------|-------------|
@@ -94,6 +88,11 @@ flowchart LR
 | `dim_date` | Dimension | Calendar table for time intelligence |
 | `fct_match` | Fact | One row per match: teams, goals, result |
 | `fct_team_season` | Fact | One row per team per season: W/D/L, goals, points, league position |
+
+## 1. Star schema: Match analysis
+![fct_match](docs/gold_fct_match.png)
+## 2. Star schema: Season analysis
+![fct_team_season](docs/gold_fct_team_season.png)
 
 ---
 
@@ -165,7 +164,7 @@ football-dw/
 │   ├── gold_fct_match.png
 │   └── gold_fct_team_season.png
 │
-├── sql/    # Schema definitions
+├── sql/                                          # Schema definitions
 │   ├── 01_init_schemas.sql                       # raw/silver/gold schemas
 │   ├── 02_raw_tables.sql                         # Bronze layer tables
 │   ├── 03_silver_tables.sql                      # Silver layer tables + normalize function
@@ -185,11 +184,11 @@ football-dw/
 │       └── checks.py                             # Automated quality checks
 │
 ├── docker-compose.yml                            # Multi-container setup
-├── Dockerfile                                     # Pipeline container
+├── Dockerfile                                    # Pipeline container
 ├── entrypoint.sh                                 # Container startup script
 ├── main.py                                       # Pipeline orchestrator
-├── requirements.txt                             # Python dependencies
-├── .env.example                                 # Environment variable template
+├── requirements.txt                              # Python dependencies
+├── .env.example                                  # Environment variable template
 └── .gitignore
 ```
 
