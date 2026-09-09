@@ -1,3 +1,7 @@
+> **Work in Progress**: Currently refactoring the Gold layer and star schema design.
+
+
+
 # Football Data Warehouse
 
 A data warehousing solution for English Premier League data built on the **Medallion Architecture** (Bronze, Silver, Gold). The pipeline extracts data from three external sources, transforms it through normalized layers and produces a star schema ready for Power BI dashboards.
