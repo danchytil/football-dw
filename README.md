@@ -119,7 +119,7 @@ Automated quality checks run after each pipeline stage. If any check fails, the 
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/YOUR_USERNAME/football-dw.git
+git clone https://github.com/danchytil/football-dw.git
 cd football-dw
 
 # 2. Create .env from template
