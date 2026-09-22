@@ -85,7 +85,7 @@ Deduplicated, normalized and linked entities:
 - **Match slug** - human-readable identifiers (`2023-08-11_BUR_MCI`) using official TLA codes from the API
 - **Idempotent upserts** - pipeline can run repeatedly without duplicates via `ON CONFLICT` clauses
 
-### Silver Layer: ER Diagram
+### Silver Layer: Physical model
 ![Silver Model](docs/silver_model.png)
 
 ### Gold Layer (PostgreSQL - Star Schema)
@@ -108,7 +108,7 @@ Business-ready **Kimball star schema** with surrogate keys and explicit table lo
 | `fct_match` | One row per match | Teams, goals, result, match_slug, stadium reference, computed points |
 | `fct_team_season` | One row per team per season | W/D/L, goals, points, league position, denormalized market value and squad data |
 
-### Gold Layer: Star Schema
+### Gold Layer: Physical model
 ![Gold Model](docs/gold_model.png)
 
 ---
